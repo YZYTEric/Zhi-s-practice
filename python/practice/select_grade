@@ -1,0 +1,8 @@
+class_dict = {"Tom": 85 , "Jerry": 75, "Eric": 65, "Jenny": 95}
+for name, grade in class_dict.items():
+    if grade >= 80:
+        print(name + " good grade")
+    elif grade <70:
+        print (name + " need working hard")
+    else:
+        print(name +" good")
