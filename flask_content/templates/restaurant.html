@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<!--Code adapted from bootstrap.com -->
+<!--picture and informarion from https://warwick.ac.uk/services/foodgroup/eat-drink/ -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top solid-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://warwick.ac.uk/">Warwick</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('dashboard') }}">Home</a>
+                    </li>
+                    <!-- Categories Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownCategories">
+                            <li><a class="dropdown-item" href="{{ url_for('coffee_drinks') }}">Coffee & Drinks</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('restaurant') }}">Restaurant</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('shop') }}">Shop</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('speciality_foods') }}">Speciality Food
+                                    Trucks</a></li>
+                        </ul>
+                    </li>
+                    <!-- My Account Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            My Account
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
+                            <li><a class="dropdown-item" href="#">Shopping Cart</a></li>
+                            <li><a class="dropdown-item" href="#">All Orders</a></li>
+                            <li><button type="button" class="btn btn-primary position-relative">
+                                    Messages
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        New
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span>
+                                </button></li>
+                            <li><a class="dropdown-item" href="#">Account Setting</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Exit</a></li>
+                        </ul>
+                    </li>
+                    <!-- Contact Us Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron Banner-->
+    <div class="custom-jumbotron p-5 text-white rounded text-center" style="height: 30px;">
+    </div>
+
+    <!-- Main Heading -->
+    <div class="text-center mt-4">
+        <h1>Restaurant</h1>
+    </div>
+
+    <!-- Jumbotron Banner-->
+    <div class="custom-jumbotron p-5 text-white rounded text-center" style="height: 30px;">
+    </div>
+
+    <!-- Restaurants -->
+    <div class="container mt-3">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/benugo.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Benugo Bar and Kitchen</h5>
+                        <p class="card-text">Location: Warwick Arts Centre</p>
+                        <p class="card-text">Dining and bar. Carbon neutral coffee and 'All day' menus.</p>
+                        <p class="card-text">Opening time: <br>
+                            Monday - Saturday<br>
+                            9.00am - 8.30pm<br>
+                            (Last food orders 8pm)<br>
+
+                            Sunday<br>
+
+                            10.00am - 8.30pm<br>
+                            (Last food orders 8pm)</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/cafe-library.jpg') }}" class="card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Café Library</h5>
+                        <p class="card-text">Location: Library</p>
+                        <p class="card-text">Hot food counter and separate grab and go area for speedy service.
+                        </p>
+                        <p class="card-text">Opening time: <br>
+                            Monday - Friday<br>
+
+                            Monday - Thursday<br>
+                            7.30am - 7.00pm<br>
+
+                            Friday<br>
+                            7.30am - 6.00pm<br>
+
+                            Saturday - Sunday<br>
+
+                            10.00am - 4.00pm</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/fusion-sportsbar-burger.jpg') }}"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Fusion Sports Bar</h5>
+                        <p class="card-text">Location: Rootes Building</p>
+                        <p class="card-text">Experience Sportsbar favourites like loaded fries and decadent burgers.
+                            Full of
+                            flavour and a feast for the eyes. Takeaway available.</p>
+                        <p class="card-text">Opening time: <br>
+                            closed</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/naic.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">NAIC Café</h5>
+                        <p class="card-text">Location: Lord Bhattacharyya Building</p>
+                        <p class="card-text">Cooked breakfast, hot lunches, sandwiches, coffee and cakes.</p>
+                        <p class="card-text">Opening time:<br>
+                            Monday - Friday<br>
+
+                            Monday - Thursday<br>
+                            8.00am - 5.00pm<br>
+
+                            Friday<br>
+                            8.00am - 4.00pm</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/aroma.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Aromar</h5>
+                        <p class="card-text">Location: Westwood campus</p>
+                        <p class="card-text">High quality, ethically sourced coffee and food available.</p>
+                        <p class="card-text">Opening time:<br>
+                            Monday - Friday<br>
+
+                            8.00am - 3.00pm</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jumbotron Banner-->
+    <div class="custom-jumbotron p-5 text-white rounded text-center" style="height: 30px;">
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-4 py-3">
+        © 2024 Warwick dining facilities interactive hub
+    </footer>
+
+
+
+    <!-- 引入 Bootstrap 的 JavaScript 和 Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

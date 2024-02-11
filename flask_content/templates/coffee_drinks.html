@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<!--Code adapted from bootstrap.com -->
+<!--picture and informarion from https://warwick.ac.uk/services/foodgroup/eat-drink/ -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee&Drinks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top solid-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://warwick.ac.uk/">Warwick</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('dashboard') }}">Home</a>
+                    </li>
+                    <!-- Categories Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownCategories">
+                            <li><a class="dropdown-item" href="{{ url_for('coffee_drinks') }}">Coffee & Drinks</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('restaurant') }}">Restaurant</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('shop') }}">Shop</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('speciality_foods') }}">Speciality Food
+                                    Trucks</a></li>
+                        </ul>
+                    </li>
+                    <!-- My Account Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            My Account
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
+                            <li><a class="dropdown-item" href="#">Shopping Cart</a></li>
+                            <li><a class="dropdown-item" href="#">All Orders</a></li>
+                            <li><button type="button" class="btn btn-primary position-relative">
+                                    Messages
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        New
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span>
+                                </button></li>
+                            <li><a class="dropdown-item" href="#">Account Setting</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Exit</a></li>
+                        </ul>
+                    </li>
+                    <!-- Contact Us Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron Banner-->
+    <div class="custom-jumbotron p-5 text-white rounded text-center" style="height: 30px;">
+    </div>
+
+    <!-- Main Heading -->
+    <div class="text-center mt-4">
+        <h1>Coffee & Drinks</h1>
+    </div>
+
+    <!-- Jumbotron Banner-->
+    <div class="custom-jumbotron p-5 text-white rounded text-center" style="height: 30px;">
+    </div>
+
+    <!-- coffee and drink shops -->
+    <div class="container mt-3">
+        <!-- First row -->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col-lg-4">
+                <!-- card 1：Café Social -->
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/cafe-social.jpg') }}" class="card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Café Social</h5>
+                        <p class="card-text">Location: Social Sciences building</p>
+                        <p class="card-text">Cultivate conversation over artisanal coffee and cake. A range of
+                            sandwiches
+                            and paninis available.</p>
+                        <p class="card-text">Opening time: <br>
+                            Monday - Friday<br>
+
+                            Monday - Thursday<br>
+                            8.00am - 4.00pm<br>
+
+                            Friday<br>
+                            8.00am - 2.00pm</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <!-- card 2：Caffè Nero -->
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/caffe-nero.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Caffè Nero</h5>
+                        <p class="card-text">Location: Sports & Wellness Hub</p>
+                        <p class="card-text">Location: Faculty of Arts</p>
+                        <p class="card-text">Award-winning Italian coffee with hot and cold food available.</p>
+                        <p class="card-text">Opening time: <br>
+                            Monday - Friday<br>
+
+                            7.00am - 8.00pm<br>
+
+                            Saturday - Sunday<br>
+
+                            8.00am - 7.00pm</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <!-- card 3：Café Gibbet Hill -->
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/gibbet-hill.jpg') }}" class="card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Café Gibbet Hill</h5>
+                        <p class="card-text">Location: Medical School</p>
+                        <p class="card-text">Cooked breakfast Monday to Friday, hot food and coffee. Daily specials each
+                            day.</p>
+                        <p class="card-text">Opening time:<br>
+                            Monday - Friday<br>
+
+                            Monday - Thursday<br>
+                            8.00am - 5.00pm<br>
+
+                            Friday<br>
+                            8.00am - 4.00pm</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- second row  -->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col-lg-4">
+                <!-- card 1：Jidong -->
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/jidong.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Jidong</h5>
+                        <p class="card-text">Location: Ground floor, Students' Union Building (South)</p>
+                        <p class="card-text">Delightful fruity refreshments and delicious signature beverages.
+                        </p>
+                        <p class="card-text">Opening time:<br>
+                            Monday - Friday<br>
+
+                            10.00am - 9.00pm<br>
+
+                            Saturday - Sunday<br>
+
+                            10.00am - 9.00pm</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <!-- card 2：Library Coffee Bar -->
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/library-coffee-bar.jpg') }}" class="card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Library Coffee Bar</h5>
+                        <p class="card-text">Location: Library</p>
+                        <p class="card-text">Cosy coffee bar on the first floor of the library, serving a Starbucks
+                            range of
+                            drinks.
+                        </p>
+                        <p class="card-text">Opening time:<br>
+                            Monday - Friday<br>
+
+                            Monday - Thursday<br>
+                            9.00am - 5.00pm<br>
+
+                            Friday<br>
+                            10.00am - 4.00pm</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <!-- card 3：Pret A Manger -->
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/pret.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Pret A Manger</h5>
+                        <p class="card-text">Location: Rootes Building</p>
+                        <p class="card-text">Fresh food and organic coffee right at the heart of campus.</p>
+                        <p class="card-text">Opening time:<br>
+                            Monday - Friday<br>
+
+                            7.00am - 7.00pm<br>
+
+                            Saturday - Sunday<br>
+
+                            Saturday 8.00am - 6.00pm<br>
+
+                            Sunday 8.00am - 6.30pm</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- third row -->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- card 1：Café Oculus -->
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/oculus.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Café Oculus</h5>
+                        <p class="card-text">Location: The Oculus</p>
+                        <p class="card-text">Now serving Costa coffee, sandwiches, and paninis.<br></p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- card 2：WBS Café -->
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/wbs-cafe.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">WBS Café</h5>
+                        <p class="card-text">Location: Warwick Business School</p>
+                        <p class="card-text">Modern restaurant and coffee bar with community seating areas. A
+                            variety of
+                            Asian cuisine and daily specials available.
+                        </p>
+                        <p class="card-text">Opening time:<br>
+                            Monday - Friday<br>
+
+                            Monday - Thursday<br>
+                            8.00am - 5.00pm<br>
+                            (Hot food 11.30am - 2.30pm)<br>
+
+                            Friday<br>
+                            8.00am 3.30pm<br>
+                            (Hot food 11.00am - 2.00pm)</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Menu
+                        </button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+                            id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    under development
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Jumbotron Banner-->
+    <div class="custom-jumbotron p-5 text-white rounded text-center" style="height: 30px;">
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-4 py-3">
+        © 2024 Warwick dining facilities interactive hub
+    </footer>
+
+
+
+    <!-- 引入 Bootstrap 的 JavaScript 和 Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
